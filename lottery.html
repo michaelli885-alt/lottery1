@@ -581,7 +581,7 @@
             }
             
             winners.forEach((winner, index) => {
-                const medal = index === 0 ? '🥇' : index === 1 ? '🥈' : index === 2 ? '🥉' : '🏅';
+                const medal = '🏅';
                 
                 const winnerEl = document.createElement('div');
                 winnerEl.className = `glass rounded-xl p-4 text-center neo prize-glow-electric-blue transition-all duration-500 transform hover:scale-105`;
@@ -608,7 +608,7 @@
                 
                 // 根据排名设置不同样式
                 if (index === 0) {
-                    badge = '👑';
+                    badge = '';
                     rankClass = 'text-gold';
                 } else if (index === 1) {
                     badge = '🥈';
@@ -622,23 +622,14 @@
                 }
                 
                 const winnerCard = document.createElement('div');
-                winnerCard.className = `glass rounded-lg p-4 neo prize-glow-electric-blue flex items-center justify-between h-16 transform transition-all duration-300 hover:scale-[1.02]`;
+                winnerCard.className = `glass rounded-lg p-5 neo prize-glow-electric-blue flex items-center h-20 transform transition-all duration-300 hover:scale-[1.02]`;
                 winnerCard.innerHTML = `
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-yellow-400/20 to-red-600/20 flex items-center justify-center badge-3d flex-shrink-0">
-                            <span class="text-base">${badge}</span>
-                        </div>
-                        <div>
-                            <h3 class="text-lg font-bold text-white border-2 border-red-500 px-2 py-0.5 rounded">${winner}</h3>
-                            <p class="text-xs text-gray-400">第${index === 0 ? '一' : index === 1 ? '二' : index === 2 ? '三' : index === 3 ? '四' : index === 4 ? '五' : index + 1}位</p>
-                        </div>
-                    </div>
-                    <div class="flex items-center gap-3">
-                        <div class="px-3 py-1 rounded-full text-xs text-yellow-400 bg-red-600/10 whitespace-nowrap">
-                            ${currentPrizeName}
-                        </div>
-                        <div class="w-6 h-6 rounded-full bg-gradient-to-r from-yellow-400 to-red-600 flex items-center justify-center text-xs">
+                    <div class="flex items-center gap-4">
+                        <div class="w-8 h-8 rounded-full bg-gradient-to-r from-yellow-400 to-red-600 flex items-center justify-center text-sm font-bold">
                             ${index + 1}
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-2xl font-bold text-white px-3 py-1">${winner}</h3>
                         </div>
                     </div>
                 `;
@@ -665,7 +656,7 @@
         function addToHistory(winners) {
             const prizeName = getPrizeName();
             const date = new Date();
-            const timeStr = `${date.getHours().toString().padStart(2, '0')}:${date.getMinutes().toString().padStart(2, '0')}`;
+            const timeStr = `${date.getFullYear()}/${(date.getMonth() + 1).toString().padStart(2, '0')}/${date.getDate().toString().padStart(2, '0')} ${date.getHours().toString().padStart(2, '0')}:${date.getMinutes().toString().padStart(2, '0')}`;
             
             const historyItem = document.createElement('div');
             historyItem.className = 'glass rounded-lg p-3 neo-inset';
