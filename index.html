@@ -12,19 +12,19 @@
             theme: {
                 extend: {
                     colors: {
-                        'electric-blue': '#00D9FF',
-                        'deep-purple': '#6C5CE7',
-                        'neon-pink': '#FF10F0',
-                        'diamond': '#B9F2FF',
+                        'electric-blue': '#FF6B6B',
+                        'deep-purple': '#8B0000',
+                        'neon-pink': '#FF69B4',
+                        'diamond': '#FFD700',
                         'gold': '#FFD700',
                         'silver': '#C0C0C0',
                         'bronze': '#CD7F32',
                         'success-green': '#00E676',
                         'warning-orange': '#FF9500',
                         'error-red': '#FF1744',
-                        'space-dark': '#0F2027',
-                        'space-purple': '#2D1B69',
-                        'space-blue': '#1a1a2e'
+                        'red-dark': '#7F0000',
+                        'red-gold': '#D4AF37',
+                        'red-cherry': '#DE3163'
                     },
                     fontFamily: {
                         inter: ['Inter', 'sans-serif'],
@@ -218,7 +218,7 @@
         }
     </style>
 </head>
-<body class="font-inter bg-gradient-to-br from-space-purple via-space-dark to-space-blue min-h-screen text-white overflow-x-hidden relative">
+<body class="font-inter bg-gradient-to-br from-red-800 via-red-900 to-red-950 min-h-screen text-white overflow-x-hidden relative">
     <!-- 背景粒子和星星 -->
     <div id="background-stars" class="fixed inset-0 pointer-events-none z-0"></div>
     
@@ -226,7 +226,7 @@
     <div class="container mx-auto px-4 py-8 relative z-10 max-w-6xl">
         <!-- 页面标题 -->
         <header class="text-center mb-10 mt-4">
-            <h1 class="text-[clamp(2rem,5vw,3.5rem)] font-bold mb-2 bg-gradient-to-r from-electric-blue via-neon-pink to-diamond gradient-text animate-pulse-slow">
+            <h1 class="text-[clamp(2rem,5vw,3.5rem)] font-bold mb-2 bg-gradient-to-r from-yellow-400 via-red-400 to-yellow-300 gradient-text animate-pulse-slow">
                 信大直播秀-幸運抽獎
             </h1>
             <p class="text-[clamp(1rem,2vw,1.2rem)] text-gray-300 max-w-2xl mx-auto">🎁 直播截止前完成抽獎條件~就有機會參加抽獎 🎁
@@ -235,8 +235,8 @@
         
         <!-- 抽奖模式标题 -->
         <div class="glass rounded-2xl p-6 mb-8 neo relative overflow-hidden text-center">
-            <h2 class="text-2xl font-bold bg-gradient-to-r from-electric-blue via-neon-pink to-diamond gradient-text">
-                <i class="fa fa-gift mr-2 text-gold"></i>抽獎系统
+            <h2 class="text-2xl font-bold bg-gradient-to-r from-yellow-400 via-red-400 to-yellow-300 gradient-text">
+                <i class="fa fa-gift mr-2 text-yellow-400"></i>抽獎系统
             </h2>
         </div>
         
@@ -251,7 +251,7 @@
                 <!-- 名单抽奖模式 -->
                 <div id="name-mode-settings" class="space-y-5">
                     <div>
-                        <label class="block mb-2 text-sm font-medium text-gray-300">参加者名單（每行一个姓名）</label>
+                        <label class="block mb-2 text-sm font-medium text-gray-300">参加者名單（每行一個姓名）</label>
                         <textarea id="participants" rows="6" class="w-full glass neo-inset rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-electric-blue transition-all resize-none" placeholder="請輸入抽獎者姓名，每行一個..."></textarea>
                         <p id="name-count" class="text-xs text-gray-400 mt-1">已輸入: 0 人</p>
                     </div>
@@ -282,7 +282,7 @@
             <div class="lg:col-span-2 space-y-6">
                 <!-- 抽奖区域 -->
                 <div class="glass rounded-2xl p-6 neo relative overflow-hidden">
-                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-electric-blue to-neon-pink"></div>
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-yellow-400 to-red-400"></div>
                     <h2 class="text-xl font-semibold mb-6 flex items-center">
                         <i class="fa fa-gift text-gold mr-2"></i>抽獎區
                     </h2>
@@ -293,7 +293,7 @@
                         </div>
                         
                         <div class="mt-8 flex justify-center gap-4">
-                            <button id="start-draw" class="px-8 py-3 bg-gradient-to-r from-electric-blue to-deep-purple rounded-full font-medium text-white hover:opacity-90 transform hover:scale-105 transition-all duration-300 flex items-center shadow-lg shadow-electric-blue/20">
+                            <button id="start-draw" onclick="startDrawing()" class="px-8 py-3 bg-gradient-to-r from-yellow-400 to-red-600 rounded-full font-medium text-white hover:opacity-90 transform hover:scale-105 transition-all duration-300 flex items-center shadow-lg shadow-yellow-400/20">
                                 <i class="fa fa-play mr-2"></i>開始抽獎
                             </button>
                             <button id="stop-draw" class="px-8 py-3 bg-gradient-to-r from-neon-pink to-error-red rounded-full font-medium text-white hover:opacity-90 transform hover:scale-105 transition-all duration-300 flex items-center shadow-lg shadow-neon-pink/20" disabled="">
@@ -345,9 +345,9 @@
             
             <!-- 庆祝内容 -->
             <div class="glass rounded-3xl p-8 neo relative overflow-hidden">
-                <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-gold via-diamond to-neon-pink"></div>
+                <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-yellow-400 via-red-400 to-yellow-300"></div>
                 
-                <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-center mb-2 gradient-text bg-gradient-to-r from-gold to-diamond" style="font-weight: bold;">
+                <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-center mb-2 gradient-text bg-gradient-to-r from-yellow-400 to-red-400" style="font-weight: bold;">
                     🎉 恭喜幸運得獎者！
                 </h2>
                 <p class="text-center text-gray-300 mb-8">✨請於直播後請私訊與小編聯繫！ ✨</p>
@@ -358,8 +358,8 @@
                 
                 <div class="text-center">
                     <p class="text-gray-300 mb-6">🌟 恭喜以上每位得獎者！</p>
-                    <button id="save-results" class="px-6 py-3 bg-gradient-to-r from-success-green to-electric-blue rounded-full font-medium text-white hover:opacity-90 transform hover:scale-105 transition-all duration-300">
-                        <i class="fa fa-check mr-2"></i>确认结果
+                    <button id="save-results" class="px-6 py-3 bg-gradient-to-r from-yellow-400 to-red-600 rounded-full font-medium text-white hover:opacity-90 transform hover:scale-105 transition-all duration-300">
+                        <i class="fa fa-check mr-2"></i>確認結果
                     </button>
                 </div>
             </div>
@@ -375,7 +375,7 @@
         let drawingInterval;
         let allParticipants = [];
         let previousWinners = [];
-        let currentPrizeName = '幸运奖';
+        let currentPrizeName = '幸運獎';
         let starCount = 100; // 背景星星数量
         
         // DOM 元素
@@ -450,17 +450,17 @@
             const count = parseInt(winnerCount.value);
             
             if (participants.length === 0) {
-                showToast('请先添加参与者', 'error');
+                showToast('請先增加參與者', 'error');
                 return false;
             }
             
             if (!allowDuplicates.checked && participants.length - previousWinners.length < count) {
-                showToast('剩余可抽奖人数不足', 'warning');
+                showToast('剩餘可抽獎人數不足', 'warning');
                 return false;
             }
             
             if (count < 1) {
-                showToast('请设置有效的获奖人数', 'error');
+                showToast('請設定有效的得獎人數', 'error');
                 return false;
             }
             
@@ -478,7 +478,7 @@
             stopDrawBtn.classList.remove('opacity-50', 'cursor-not-allowed');
             
             // 更新当前奖项名称
-            currentPrizeName = document.getElementById('prize-name').value || '幸运奖';
+            currentPrizeName = document.getElementById('prize-name').value || '幸運獎';
             
             // 获取符合条件的参与者（排除已中奖且不允许重复的）
             let eligibleParticipants = generateParticipants();
@@ -489,7 +489,7 @@
             }
             
             // 抽奖动画
-            drawingAnimation.textContent = '🎲 命运的齿轮正在转动...';
+            drawingAnimation.textContent = '🎲 命運的齒輪正在轉動...';
             drawingAnimation.classList.add('animate-pulse');
             
             let lastIndex = -1;
@@ -550,7 +550,7 @@
                 }, 600);
             } else if (winners.length > 1) {
                 // 多个获奖者时显示提示信息
-                drawingAnimation.textContent = `恭喜 ${winners.length} 位获奖者！`;
+                drawingAnimation.textContent = `恭喜 ${winners.length} 位得獎者！`;
             }
             
             // 显示获奖者
@@ -564,7 +564,7 @@
             // 添加到历史记录
             addToHistory(winners);
             
-            showToast(`恭喜 ${winners.length} 位幸运儿获奖！`, 'success');
+            showToast(`恭喜 ${winners.length} 位幸運兒得獎！`, 'success');
         }
         
         // 显示获奖者
@@ -574,7 +574,7 @@
             if (winners.length === 0) {
                 winnersContainer.innerHTML = `
                     <div class="col-span-full text-gray-400 text-center py-12">
-                        抽奖结果将在这里展示
+                        抽獎结果將在這裡展示
                     </div>
                 `;
                 return;
@@ -625,7 +625,7 @@
                 winnerCard.className = `glass rounded-lg p-4 neo prize-glow-electric-blue flex items-center justify-between h-16 transform transition-all duration-300 hover:scale-[1.02]`;
                 winnerCard.innerHTML = `
                     <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-electric-blue/20 to-deep-purple/20 flex items-center justify-center badge-3d flex-shrink-0">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-yellow-400/20 to-red-600/20 flex items-center justify-center badge-3d flex-shrink-0">
                             <span class="text-base">${badge}</span>
                         </div>
                         <div>
@@ -634,10 +634,10 @@
                         </div>
                     </div>
                     <div class="flex items-center gap-3">
-                        <div class="px-3 py-1 rounded-full text-xs text-yellow-400 bg-electric-blue/10 whitespace-nowrap">
+                        <div class="px-3 py-1 rounded-full text-xs text-yellow-400 bg-red-600/10 whitespace-nowrap">
                             ${currentPrizeName}
                         </div>
-                        <div class="w-6 h-6 rounded-full bg-gradient-to-r from-electric-blue to-neon-pink flex items-center justify-center text-xs">
+                        <div class="w-6 h-6 rounded-full bg-gradient-to-r from-yellow-400 to-red-600 flex items-center justify-center text-xs">
                             ${index + 1}
                         </div>
                     </div>
@@ -819,7 +819,7 @@
         saveResults.addEventListener('click', () => {
             celebrationModal.style.display = 'none';
             document.querySelectorAll('.confetti, .particle').forEach(el => el.remove());
-            showToast('结果已保存', 'success');
+            showToast('結果已保存', 'success');
         });
         
         // 初始化
